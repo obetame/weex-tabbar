@@ -1,0 +1,127 @@
+<!-- index.we -->
+<template>
+	<div class="index">
+		<wxc-navpage if="showNavPage" class="navpage" data-role="none" height="{{navBarHeight}}" background-color="#db3652" title="weex-tabbar" title-color="white" left-item-title="返回" left-item-color="white" left-item-src="http://oavd4gltg.bkt.clouddn.com/search.png" right-item-src="http://oavd4gltg.bkt.clouddn.com/info.png"></wxc-navpage>
+		<tab1 class="page" style="display:{{page===0?'block':'none'}}"></tab1>
+		<tab2 class="page" style="display:{{page===1?'block':'none'}}"></tab2>
+		<tab3 class="page" style="display:{{page===2?'block':'none'}}"></tab3>
+		<tab4 class="page" style="display:{{page===3?'block':'none'}}"></tab4>
+	  <tabbar id="tabbar" tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
+	</div>
+</template>
+
+<style>
+.navpage{
+	z-index: 10;
+	height:88;
+}
+.tabbar{
+	width:750;
+	z-index: 10;
+}
+.index{
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
+
+</style>
+
+<script>
+require("./components/tabbar.we");
+require("./components/tab1.we");
+require("./components/tab2.we");
+require("./components/tab3.we");
+require("./components/tab4.we");
+let modal = require('@weex-module/modal');
+
+module.exports = {
+	data:{
+		showNavPage:true,//默认显示导航页
+		page:0,//默认选择的是第一个页面
+		navBarHeight:"88",//nav高度
+		tabItems: [
+			{
+				title: "首页",
+				defaultTitleColor: "#000",
+				image: "http://gtms01.alicdn.com/tps/i1/TB1qw.hMpXXXXagXXXX9t7RGVXX-46-46.png",
+				selectedImage: "http://gtms04.alicdn.com/tps/i4/TB16jjPMpXXXXazXVXX9t7RGVXX-46-46.png",
+				activeTitleColor:"#db3652"
+			},
+			{
+				title: "最新",
+				defaultTitleColor: "#000",
+				image: "http://gtms03.alicdn.com/tps/i3/TB1LEn9MpXXXXaUXpXX9t7RGVXX-46-46.png",
+				selectedImage: "http://gtms02.alicdn.com/tps/i2/TB1qysbMpXXXXcnXXXX9t7RGVXX-46-46.png",
+				activeTitleColor:"#db3652"
+			},
+			{
+				title: "购物车",
+				defaultTitleColor: "#000",
+				image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
+				selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
+				activeTitleColor:"#db3652",
+				haslabel:true,
+				labelName:"cart",
+				label:5,
+			},
+			{
+				title: "个人中心",
+				defaultTitleColor: "#000",
+				image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
+				selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
+				activeTitleColor:"#db3652"
+			}
+		],
+	},
+	created() {
+		// 开始监听导航栏的搜索按钮和信息按钮
+		this.$on('naviBar.leftItem.click',function(e){
+			modal.toast({
+				"message":"左边点击正常",
+				"duration":2
+			});
+		});
+		this.$on('naviBar.rightItem.click',function(e){
+			modal.toast({
+				"message":"右边点击正常",
+				"duration":2
+			});
+		});
+
+		// 根据屏幕高度调整顶部导航栏高度
+		this.$getConfig((config)=>{
+			let env = config.env;
+			if(env.platform == 'iOS'){
+				let scale = env.scale;
+				let deviceWidth = env.deviceWidth / scale;
+				this.navBarHeight = 64.0 * 750.0 / deviceWidth;
+			}   
+		});
+
+		// 监听子组件tabbar发送过来的消息
+		this.$on("switchPage",(e)=>{
+			this.page = e.detail.page;
+		});
+		// 监听子组件index发送过来的消息
+		this.$on("addGoodsNumber",(e)=>{
+			// 再根据消息传递给tabbar
+			this.$broadcast("tabbarAccept",{
+				action:e.detail.action,//执行的动作,包含"add","minus","set"
+				target:e.detail.target,//执行的目标
+				value:e.detail.value,//自定义字段
+			})
+		});
+
+		// 隐藏tabbar
+		this.$on("State",(e)=>{
+			// 再根据消息传递给tabbar
+			this.$broadcast("tabbarState",{
+				state:e.detail.state
+			});
+		});
+	}
+}
+</script>

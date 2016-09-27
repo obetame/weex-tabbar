@@ -1,0 +1,84 @@
+<template>
+    <scroller class="wrapper">
+        <text ondisappear="tabbarState" onappear="tabbarState" class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:#000">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+        <text class="text" style="color:{{color}}">{{text}}</text>
+    </scroller>
+</template>
+
+<style>
+    .wrapper { 
+        width: 750; 
+        position: absolute; 
+        top: 88; 
+        left: 0; 
+        right: 0; 
+        bottom: 0;
+        align-items: center; 
+        justify-content: center;
+    }
+    .text {
+        font-size:60; 
+        font-weight: bold; 
+        font-family: "Open Sans", sans-serif;
+    }
+</style>
+
+<script>
+module.exports = {
+    data: {
+        color: '#ff0000',
+        text: '',
+    },
+    created: function() {
+        this.color = '#694e4e';
+        this.text = 'This is Tab 4 Test.';
+    },
+    methods:{
+        tabbarState(event){
+            this.$dispatch("State",{
+                state:event.direction==="up"?"hide":"show"
+            });
+        }
+    }
+}
+</script>

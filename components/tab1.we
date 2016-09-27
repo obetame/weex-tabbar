@@ -1,0 +1,110 @@
+<template>
+	<scroller class="wrapper">
+		<text ondisappear="tabbarState" onappear="tabbarState" class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text onclick="addNumber" class="text" style="color:{{color}}">点击我增加数量</text>
+		<text onclick="minusNumber" class="text" style="color:{{color}}">点击我减少数量</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<input style="height:70;font-size:30;" type="tel" placeholder="请输入需要设置的数量" onchange="record" maxlength="2"></input>
+		<text onclick="setNumber" class="text" style="color:{{color}}">点击设置数量</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:#000">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+		<text class="text" style="color:{{color}}">{{text}}</text>
+	</scroller>
+</template>
+
+<style>
+	.wrapper { 
+		width: 750; 
+		position: absolute; 
+		top: 88; 
+		left: 0; 
+		right: 0; 
+		bottom: 0;
+		align-items: center; 
+		justify-content: center;
+	}
+	.text {
+		font-size:60; 
+		font-weight: bold; 
+		font-family: "Open Sans", sans-serif;
+	}
+</style>
+
+<script>
+module.exports = {
+	data: {
+		color: '#ff0000',
+		text: '',
+		input:""
+	},
+	created: function() {
+		this.color = '#694e4e';
+		this.text = 'This is Tab 1 Test.';
+	},
+	methods:{
+		tabbarState(event){
+			this.$dispatch("State",{
+				state:event.direction==="up"?"hide":"show"
+			});
+		},
+		addNumber(){
+			this.$dispatch("addGoodsNumber",{
+				value:1,
+				action:"add",
+				target:"cart"
+			});
+		},
+		minusNumber(){
+			this.$dispatch("addGoodsNumber",{
+				value:1,
+				action:"minus",
+				target:"cart"
+			});
+		},
+		setNumber(){
+			this.$dispatch("addGoodsNumber",{
+				value:this.input,
+				action:"set",
+				target:"cart"
+			});
+		},
+		record(e){
+			this.input = e.value;
+		}
+	}
+}
+</script>
