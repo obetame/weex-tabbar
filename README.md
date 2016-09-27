@@ -15,7 +15,7 @@ require("./your-components/tabbar.we");
 
 ```html
 <template>
-  <tabbar id="tabbar" tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
+  <tabbar id="tabbar" bgopacity="0.9"  tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
 </template>
 
 <style>
@@ -73,6 +73,7 @@ tabbar有以下两个属性:
 
 1. `tabs`:一个包含了tab信息的数组.
 2. `selected`:默认开始选中的tab.
+3. `bgopacity`:背景透明度,值为0~1.
 
 其中`tabs`中的tab有以下几个属性:
 

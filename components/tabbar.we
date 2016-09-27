@@ -1,6 +1,6 @@
 <!-- tabbar.we -->
 <template>
-	<div class="tabbar" id="tabbar" style="transform-origin:{{transformOrigin}},height:{{tabbarHeight}}">
+	<div class="tabbar" id="tabbar" style="transform-origin:{{transformOrigin}};height:{{tabbarHeight}};background-color:rgba(255, 255, 255,{{bgopacity}})">
 		<div class="tabs" onclick="switchPage($index)" repeat="{{tabs}}">
 			<image class="img" if="{{selected!==$index}}" style="left:{{imgleft}}" src="{{image}}"></image>
 			<image class="img" if="{{selected===$index}}" style="left:{{imgleft}}" src="{{selectedImage}}"></image>
@@ -18,7 +18,6 @@
 	left:0;
 	text-align: center;
 	border-top:1px solid rgb(197, 197, 197);
-	background-color: #fff;
 }
 .tabs{
 	position: relative;
@@ -63,6 +62,7 @@ module.exports = {
 		selected:0,//默认选中的tab
 		tabbarHeight:"100",//tabbar高度
 		imgleft:70,//默认四个tab的话就是70
+		bgopacity:"1",
 		transformOrigin:"center center",
 		current_translate:"show",
 		controlAnim:0,//控制动画

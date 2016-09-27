@@ -6,7 +6,7 @@
 		<tab2 class="page" style="display:{{page===1?'block':'none'}}"></tab2>
 		<tab3 class="page" style="display:{{page===2?'block':'none'}}"></tab3>
 		<tab4 class="page" style="display:{{page===3?'block':'none'}}"></tab4>
-	  <tabbar id="tabbar" tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
+	  <tabbar id="tabbar" bgopacity="0.9" tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
 	</div>
 </template>
 
