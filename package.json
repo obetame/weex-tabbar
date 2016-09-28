@@ -1,16 +1,25 @@
 {
-  "name": "other",
+  "name": "weex-tabbar",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "weex custom tabbar Component , Support children component and Label text",
+  "main": "./index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack --watch",
-    "serve": "serve -p 8080",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "weex index.we"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhouyuexie/weex-tabbar.git"
+  },
+  "keywords": [
+    "weex",
+    "tabbar",
+    "weexcomponents",
+    "javascript",
+    "customcomponents",
+    "android",
+    "ios"
+  ],
+  "author": "zhouyuexie",
   "license": "ISC",
   "devDependencies": {
     "babel-loader": "^6.2.5",

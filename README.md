@@ -3,10 +3,14 @@ weex custom tabbar Component , Support children component and Label text(weex自
 
 ## 安装
 
-请直接克隆或者下载本库,然后将目录`./components/`下的`tabbar.we`文件放到你的组件文件夹中,再引用:
+```javascript
+npm install weex-tabbar --save
+```
+
+再引用:
 
 ```javascript
-require("./your-components/tabbar.we");
+require("weex-tabbar");
 ```
 
 ## 使用
