@@ -89,6 +89,7 @@ tabbar有以下两个属性:
   haslabel:true,//是否有标签
   labelName:"cart",//标签的名id(唯一)
   label:5,//标签显示数字
+  labelColor:"#db3652",//标签背景色
 }
 ```
 

@@ -4,7 +4,7 @@
   "description": "weex custom tabbar Component , Support children component and Label text",
   "main": "./index.js",
   "scripts": {
-    "start": "weex index.we"
+    "build": "weex index.we -o ./build/ && weex ./components/tab1.we -o ./build/components/ && weex ./components/tab2.we -o ./build/components/ && weex ./components/tab3.we -o ./build/components/ && weex ./components/tab4.we -o ./build/components/"
   },
   "repository": {
     "type": "git",

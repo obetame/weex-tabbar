@@ -66,6 +66,7 @@ module.exports = {
 				haslabel:true,
 				labelName:"cart",
 				label:5,
+				labelColor:"#db3652",
 			},
 			{
 				title: "个人中心",

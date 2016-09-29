@@ -5,7 +5,7 @@
 			<image class="img" if="{{selected!==$index}}" style="left:{{imgleft}}" src="{{image}}"></image>
 			<image class="img" if="{{selected===$index}}" style="left:{{imgleft}}" src="{{selectedImage}}"></image>
 			<text class="text" style="color:{{selected===$index?activeTitleColor:defaultTitleColor}}">{{title}}</text>
-			<text class="number" id="{{labelName}}" if="{{haslabel}}">{{label}}</text>
+			<text class="number" style="background-color:{{labelColor}}" id="{{labelName}}" if="{{haslabel}}">{{label}}</text>
 		</div>
 	</div>
 </template>
@@ -36,13 +36,13 @@
 }
 .text{
 	font-size:26;
+	text-align: center;
 }
 .number{
 	position: absolute;
 	bottom:55;
 	right:30;
 	color:#fff;
-	background-color: #db3652;
 	border-radius: 20;
 	width:40;
 	height: 40;
@@ -63,6 +63,7 @@ module.exports = {
 		tabbarHeight:"100",//tabbar高度
 		imgleft:70,//默认四个tab的话就是70
 		bgopacity:"1",
+		labelColor:"#db3652",
 		transformOrigin:"center center",
 		current_translate:"show",
 		controlAnim:0,//控制动画
