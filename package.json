@@ -1,6 +1,6 @@
 {
   "name": "weex-tabbar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "weex custom tabbar Component , Support children component and Label text",
   "main": "./index.js",
   "scripts": {

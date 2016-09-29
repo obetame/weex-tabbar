@@ -15,8 +15,6 @@ require("weex-tabbar");
 
 ## 使用
 
-
-
 ```html
 <template>
   <tabbar id="tabbar" bgopacity="0.9"  tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
@@ -29,45 +27,45 @@ require("weex-tabbar");
 </style>
 
 <script>
-  require("./components/tabbar.we");
-  module.exports = {
-    data:{
-      page:0,//默认选择的是第一个页面
-      tabItems: [//配置每个tabbar
-        {
-          title: "首页",
-          defaultTitleColor: "#000",
-          image: "http://gtms01.alicdn.com/tps/i1/TB1qw.hMpXXXXagXXXX9t7RGVXX-46-46.png",
-          selectedImage: "http://gtms04.alicdn.com/tps/i4/TB16jjPMpXXXXazXVXX9t7RGVXX-46-46.png",
-          activeTitleColor:"#db3652"
-        },
-        {
-          title: "最新",
-          defaultTitleColor: "#000",
-          image: "http://gtms03.alicdn.com/tps/i3/TB1LEn9MpXXXXaUXpXX9t7RGVXX-46-46.png",
-          selectedImage: "http://gtms02.alicdn.com/tps/i2/TB1qysbMpXXXXcnXXXX9t7RGVXX-46-46.png",
-          activeTitleColor:"#db3652"
-        },
-        {
-          title: "购物车",
-          defaultTitleColor: "#000",
-          image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
-          selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
-          activeTitleColor:"#db3652",
-          haslabel:true,
-          labelName:"cart",
-          label:5,
-        },
-        {
-          title: "个人中心",
-          defaultTitleColor: "#000",
-          image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
-          selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
-          activeTitleColor:"#db3652"
-        }
-      ],
-    }
+require("weex-tabbar");
+module.exports = {
+  data:{
+    page:0,//默认选择的是第一个页面
+    tabItems: [//配置每个tabbar
+      {
+        title: "首页",
+        defaultTitleColor: "#000",
+        image: "http://gtms01.alicdn.com/tps/i1/TB1qw.hMpXXXXagXXXX9t7RGVXX-46-46.png",
+        selectedImage: "http://gtms04.alicdn.com/tps/i4/TB16jjPMpXXXXazXVXX9t7RGVXX-46-46.png",
+        activeTitleColor:"#db3652"
+      },
+      {
+        title: "最新",
+        defaultTitleColor: "#000",
+        image: "http://gtms03.alicdn.com/tps/i3/TB1LEn9MpXXXXaUXpXX9t7RGVXX-46-46.png",
+        selectedImage: "http://gtms02.alicdn.com/tps/i2/TB1qysbMpXXXXcnXXXX9t7RGVXX-46-46.png",
+        activeTitleColor:"#db3652"
+      },
+      {
+        title: "购物车",
+        defaultTitleColor: "#000",
+        image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
+        selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
+        activeTitleColor:"#db3652",
+        haslabel:true,
+        labelName:"cart",
+        label:5,
+      },
+      {
+        title: "个人中心",
+        defaultTitleColor: "#000",
+        image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
+        selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
+        activeTitleColor:"#db3652"
+      }
+    ],
   }
+}
 </script>
 ```
 
@@ -105,12 +103,14 @@ tabbar有以下两个属性:
 打开`index.we`文件看第五行:
 
 ```html
-<tab1 class="page" style="display:{{page===0?'block':'none'}}"></tab1>
+<tab1 class="page" if="page===0" style="display:{{page===0?'block':'none'}}"></tab1>
 ```
 
 这是我们第一个内容展示页,tab1页面的显示与否都是由属性`display`来控制的,学过react的同学看到这里估计会不适应,不过没办法,我想不到更好的办法来实现了,如果说这里也写一个组件,我感觉有点多余,就暂时是这样吧.
 
 为何不用`if`来控制呢?其实你也可以换成这个控制,但是有些页面我们是不想来回切换都要重新加载的,区别是:`if`每次都要刷新页面,而`display`只是隐藏它而已.
+
+**注意:web端可以使用display控制,但是android已经测试无法使用,所以只能使用if,所以为了保证兼容性请都加上.**
 
 再看105行:
 
