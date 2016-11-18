@@ -96,9 +96,8 @@
 	      "classList": [
 	        "page"
 	      ],
-	      "shown": function () {return this.page===0},
 	      "style": {
-	        "display": function () {return this.page===0?'block':'none'}
+	        "zIndex": function () {return this.page===0?5:0}
 	      }
 	    },
 	    {
@@ -106,9 +105,8 @@
 	      "classList": [
 	        "page"
 	      ],
-	      "shown": function () {return this.page===1},
 	      "style": {
-	        "display": function () {return this.page===1?'block':'none'}
+	        "zIndex": function () {return this.page===1?5:0}
 	      }
 	    },
 	    {
@@ -116,9 +114,8 @@
 	      "classList": [
 	        "page"
 	      ],
-	      "shown": function () {return this.page===2},
 	      "style": {
-	        "display": function () {return this.page===2?'block':'none'}
+	        "zIndex": function () {return this.page===2?5:0}
 	      }
 	    },
 	    {
@@ -126,9 +123,8 @@
 	      "classList": [
 	        "page"
 	      ],
-	      "shown": function () {return this.page===3},
 	      "style": {
-	        "display": function () {return this.page===3?'block':'none'}
+	        "zIndex": function () {return this.page===3?5:0}
 	      }
 	    },
 	    {
@@ -165,6 +161,10 @@
 	    "right": 0,
 	    "top": 0,
 	    "bottom": 0
+	  },
+	  "page": {
+	    "backgroundColor": "#ffffff",
+	    "zIndex": 0
 	  }
 	}
 
@@ -305,8 +305,11 @@
 	      "classList": [
 	        "tabs"
 	      ],
+	      "attr": {
+	        "ref": function () {return this.$index}
+	      },
 	      "events": {
-	        "click": function ($event) {this.switchPage(this.$index,$event)}
+	        "click": "switchPage"
 	      },
 	      "repeat": function () {return this.tabs},
 	      "children": [
@@ -378,7 +381,9 @@
 	    "bottom": 0,
 	    "left": 0,
 	    "textAlign": "center",
-	    "borderTop": "1px solid rgb(197, 197, 197)"
+	    "borderTop": "1px solid rgb(197, 197, 197)",
+	    "zIndex": 10,
+	    "width": 750
 	  },
 	  "tabs": {
 	    "position": "relative",
@@ -408,8 +413,8 @@
 	    "borderRadius": 20,
 	    "width": 40,
 	    "height": 40,
-	    "lineHeight": 35,
-	    "fontSize": 30,
+	    "lineHeight": 40,
+	    "fontSize": 28,
 	    "textAlign": "center"
 	  }
 	}
@@ -462,7 +467,8 @@
 		ready: function ready() {},
 
 		methods: {
-			switchPage: function switchPage(index) {
+			switchPage: function switchPage(event) {
+				var index = event.target.attr.ref;
 				this.$dispatch("switchPage", {
 					page: index
 				});
@@ -3071,8 +3077,7 @@
 	  },
 	  "text": {
 	    "fontSize": 60,
-	    "fontWeight": "bold",
-	    "fontFamily": "\"Open Sans\", sans-serif"
+	    "fontWeight": "bold"
 	  }
 	}
 
@@ -4266,8 +4271,7 @@
 	  },
 	  "text": {
 	    "fontSize": 60,
-	    "fontWeight": "bold",
-	    "fontFamily": "\"Open Sans\", sans-serif"
+	    "fontWeight": "bold"
 	  }
 	}
 
@@ -4857,8 +4861,7 @@
 	  },
 	  "text": {
 	    "fontSize": 60,
-	    "fontWeight": "bold",
-	    "fontFamily": "\"Open Sans\", sans-serif"
+	    "fontWeight": "bold"
 	  }
 	}
 

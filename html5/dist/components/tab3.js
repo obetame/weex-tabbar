@@ -601,8 +601,7 @@
 	  },
 	  "text": {
 	    "fontSize": 60,
-	    "fontWeight": "bold",
-	    "fontFamily": "\"Open Sans\", sans-serif"
+	    "fontWeight": "bold"
 	  }
 	}
 
