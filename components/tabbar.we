@@ -37,6 +37,7 @@
 .text{
 	font-size:26;
 	text-align: center;
+	margin-top:5;
 }
 .number{
 	position: absolute;

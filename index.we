@@ -2,10 +2,10 @@
 <template>
 	<div class="index">
 		<wxc-navpage if="showNavPage" class="navpage" data-role="none" height="{{navBarHeight}}" background-color="#db3652" title="weex-tabbar" title-color="white" left-item-title="返回" left-item-color="white" left-item-src="http://oavd4gltg.bkt.clouddn.com/search.png" right-item-src="http://oavd4gltg.bkt.clouddn.com/info.png"></wxc-navpage>
-		<tab1 class="page" if="page===0" style="display:{{page===0?'block':'none'}}"></tab1>
-		<tab2 class="page" if="page===1" style="display:{{page===1?'block':'none'}}"></tab2>
-		<tab3 class="page" if="page===2" style="display:{{page===2?'block':'none'}}"></tab3>
-		<tab4 class="page" if="page===3" style="display:{{page===3?'block':'none'}}"></tab4>
+		<tab1 class="page" if="{{page===0}}" style="display:{{page===0?'block':'none'}}"></tab1>
+		<tab2 class="page" if="{{page===1}}" style="display:{{page===1?'block':'none'}}"></tab2>
+		<tab3 class="page" if="{{page===2}}" style="display:{{page===2?'block':'none'}}"></tab3>
+		<tab4 class="page" if="{{page===3}}" style="display:{{page===3?'block':'none'}}"></tab4>
 	  <tabbar id="tabbar" bgopacity="0.9" tabs="{{tabItems}}" selected="{{page}}" class="tabbar"></tabbar>
 	</div>
 </template>
