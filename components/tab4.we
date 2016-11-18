@@ -59,7 +59,6 @@
     .text {
         font-size:60; 
         font-weight: bold; 
-        font-family: "Open Sans", sans-serif;
     }
 </style>
 

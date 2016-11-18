@@ -1,7 +1,7 @@
 <!-- tabbar.we -->
 <template>
 	<div class="tabbar" id="tabbar" style="transform-origin:{{transformOrigin}};height:{{tabbarHeight}};background-color:rgba(255, 255, 255,{{bgopacity}})">
-		<div class="tabs" onclick="switchPage($index)" repeat="{{tabs}}">
+		<div class="tabs" ref="{{$index}}" onclick="switchPage" repeat="tabs">
 			<image class="img" if="{{selected!==$index}}" style="left:{{imgleft}}" src="{{image}}"></image>
 			<image class="img" if="{{selected===$index}}" style="left:{{imgleft}}" src="{{selectedImage}}"></image>
 			<text class="text" style="color:{{selected===$index?activeTitleColor:defaultTitleColor}}">{{title}}</text>
@@ -18,6 +18,8 @@
 	left:0;
 	text-align: center;
 	border-top:1px solid rgb(197, 197, 197);
+	z-index: 10;
+	width: 750;
 }
 .tabs{
 	position: relative;
@@ -47,8 +49,8 @@
 	border-radius: 20;
 	width:40;
 	height: 40;
-	line-height: 35;
-	font-size:30;
+	line-height: 40;
+	font-size:28;
 	text-align: center;
 }
 </style>
@@ -103,7 +105,8 @@ module.exports = {
 		
 	},
 	methods: {
-		switchPage(index){
+		switchPage(event){
+			let index = event.target.attr.ref;
 			this.$dispatch("switchPage",{
 				page:index
 			});
