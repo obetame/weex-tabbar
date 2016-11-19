@@ -1,6 +1,8 @@
 # weex-tabbar
 weex custom tabbar Component , Support children component and Label text(weex自定义tabbar组件,支持label文字显示)
 
+![](https://github.com/zhouyuexie/weex-tabbar/blob/master/weex-tabbar.gif)
+
 ## 安装
 
 ```javascript
